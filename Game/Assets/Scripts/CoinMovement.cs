@@ -14,6 +14,7 @@ public class CoinMovement : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D player) {
         if (player.gameObject.tag == "Player") {
             Destroy(gameObject);
+            DataClass.scoreInt++;
         }
     }
 
