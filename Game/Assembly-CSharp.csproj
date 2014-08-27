@@ -46,12 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Backgroundoffset.cs" />
-     <Compile Include="Assets\Scripts\Jumping.cs" />
      <Compile Include="Assets\Scripts\Movement\ButtonsMovement.cs" />
      <Compile Include="Assets\Scripts\Movement\CoinMovement.cs" />
      <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Sliding.cs" />
      <Compile Include="Assets\Scripts\Spawning\SpawnScript.cs" />
      <Compile Include="Assets\Scripts\background.cs" />
