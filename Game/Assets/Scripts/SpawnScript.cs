@@ -33,7 +33,7 @@ public class SpawnScript : MonoBehaviour {
 
     void SpawnCoin() {
         if (isArch == false) {
-            if (spawnTime >= 0.5) {
+            if (spawnTime >= 0.2) {
                 Instantiate(coin, transform.position, transform.rotation);
                 spawnTime = 0;
             }
@@ -50,24 +50,23 @@ public class SpawnScript : MonoBehaviour {
 
     void SpawnArch() {
         if (spawnArch) {
-            if (numberUp <= 4)
-            {
-                if (spawningTime >= 0.3) {
+            if (numberUp <= 1) { // Hoeveel seconden omhoog.
+                if (spawningTime >= 0.2) { // Snelheid van spawnen.
                     Instantiate(coin, transform.position, transform.rotation);
                     transform.Translate(Vector3.up * timeSpawn, Space.World);
                     numberUp++;
                     spawningTime = 0;
                 }
             }
-            if (numberUp >= 4) {
-                if (spawningTime >= 0.3) {
+            if (numberUp >= 1) { // Hoeveel secondes omlaag
+                if (spawningTime >= 0.2) { // Snelheid van spawnen
                     Instantiate(coin, transform.position, transform.rotation);
                     transform.Translate(Vector3.down * timeSpawn, Space.World);
                     spawningTime = 0;
                     numberUp++;
                 }
             }
-            if (numberUp >= 10) {
+            if (numberUp >= 4) { // Totale seconde, berekening = Eerste spawn + Tweede spawn + 2
                 numberUp = 0;
                 isArch = false;
                 spawnArch = false;

@@ -5,7 +5,8 @@ public class CoinMovement : MonoBehaviour {
     /* 
      * Dit script is gemaakt door Alex Antonides © - 2014.
      */
-    private float movementSpeed = 0.1f;
+    [SerializeField] private float movementSpeed = 0.1f;
+
     void Update() {
         transform.Translate(Vector3.left * movementSpeed);
 	}

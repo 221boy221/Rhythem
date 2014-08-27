@@ -4,12 +4,12 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
     //Movement
-	public float speed = 0.1f;
-	private float xMin = -8f;
-	private float xMax = 8f;
+	[SerializeField] private float speed = 0.1f;
+	private float xMin = -7f;
+	private float xMax = 7f;
     //Jumping
-    public int jumpForce = 250;
-    public float jumpSpeed = 3f;
+    [SerializeField] private int jumpForce = 250;
+    [SerializeField] private float jumpSpeed = 3f;
     private bool onGround = true;
 	
 	void Update () {
@@ -18,18 +18,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
     private void Movement() {
-        if (Input.GetKey(KeyCode.A) && transform.position.x > xMin) {
+        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x >= xMin || Input.GetKey(KeyCode.A) && transform.position.x >= xMin) {
             transform.Translate(Vector3.left * speed);
         }
-        if (Input.GetKey(KeyCode.D) && transform.position.x < xMax) {
+        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x <= xMax || Input.GetKey(KeyCode.D) && transform.position.x <= xMax) {
             transform.Translate(Vector3.right * speed);
         }
     }
 
     private void Jumping() {
-        // If W is pressed and player is onGround
-        if (Input.GetKeyDown(KeyCode.W) && onGround == true) {
-            //Jump Physics
+        if (Input.GetKeyDown(KeyCode.W) && onGround == true || Input.GetKey(KeyCode.UpArrow) && onGround == true) {
             this.transform.rigidbody2D.AddForce(Vector3.up * jumpSpeed * jumpForce);
             onGround = false;
         }
