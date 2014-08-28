@@ -5,72 +5,29 @@ public class SpawnScript : MonoBehaviour {
     /* 
      * Dit script is gemaakt door Alex Antonides © - 2014.
      */
-    private float spawnTime;
-    private float archTime;
-    private float spawningTime;
+    private float soldierSpawnTime;
+    [SerializeField] private int tMin = 5;
+    [SerializeField] private int tMax = 15;
+    private int randomTimer;
 
-    private bool isArch = false;
-    private bool spawnArch = false;
+    public Transform soldier;
 
-    private int numberUp = 0;
-    private int randomNumber;
-
-    private float timeSpawn= 0.8f;
-
-    public Transform coin;
+    void Start() {
+        randomTimer = Random.Range(tMin, tMax);
+    }
 
 	void Update () {
-        spawnTime += Time.deltaTime;
-        archTime += Time.deltaTime;
-        spawningTime += Time.deltaTime;
+        soldierSpawnTime += Time.deltaTime;
 
-        randomNumber = Random.Range(10, 30);
-
-        SpawnCoin();
-        CreateArch();
-        SpawnArch();
+        SpawnSoldier();
 	}
 
-    void SpawnCoin() {
-        if (isArch == false) {
-            if (spawnTime >= 0.2) {
-                Instantiate(coin, transform.position, transform.rotation);
-                spawnTime = 0;
-            }
+    void SpawnSoldier() {
+        if (soldierSpawnTime >= randomTimer) {
+            Instantiate(soldier, transform.position, transform.rotation);
+            soldierSpawnTime = 0;
+            randomTimer = Random.Range(tMin, tMax);
         }
     }
 
-    void CreateArch() {
-        if (archTime >= randomNumber) {
-            isArch = true;
-            spawnArch = true;
-            archTime = 0;
-        }
-    }
-
-    void SpawnArch() {
-        if (spawnArch) {
-            if (numberUp <= 1) { // Hoeveel seconden omhoog.
-                if (spawningTime >= 0.2) { // Snelheid van spawnen.
-                    Instantiate(coin, transform.position, transform.rotation);
-                    transform.Translate(Vector3.up * timeSpawn, Space.World);
-                    numberUp++;
-                    spawningTime = 0;
-                }
-            }
-            if (numberUp >= 1) { // Hoeveel secondes omlaag
-                if (spawningTime >= 0.2) { // Snelheid van spawnen
-                    Instantiate(coin, transform.position, transform.rotation);
-                    transform.Translate(Vector3.down * timeSpawn, Space.World);
-                    spawningTime = 0;
-                    numberUp++;
-                }
-            }
-            if (numberUp >= 4) { // Totale seconde, berekening = Eerste spawn + Tweede spawn + 2
-                numberUp = 0;
-                isArch = false;
-                spawnArch = false;
-            }
-        }
-    }
 }
