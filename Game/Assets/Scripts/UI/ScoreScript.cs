@@ -7,12 +7,12 @@ public class ScoreScript : MonoBehaviour {
      */
     public GUIText timeText;
 
-    void Awake() {
+    private void Awake() {
         timeText = GameObject.FindGameObjectWithTag("ScoreBoard").GetComponent<GUIText>();
         timeText.text = "Score: " + DataClass.scoreInt;
     }
 
-    void Update() {
+    private void Update() {
         timeText.text = "Score :" + DataClass.scoreInt;
     }
 }

@@ -6,7 +6,7 @@ public class background : MonoBehaviour {
     [SerializeField] private float speed = 0f;
     private float position = 0f;
 
-    void Update() {
+    private void Update() {
         position += speed * Time.deltaTime;
 
         if (position > 1.0f) {
@@ -14,7 +14,6 @@ public class background : MonoBehaviour {
         }
 
         renderer.material.mainTextureOffset = new Vector2(position, 0);
-
     }
 
 }

@@ -11,11 +11,11 @@ public class DataClass : MonoBehaviour {
 
     public static float timeFloat;
 
-	void Awake(){
+    private void Awake() {
 		DontDestroyOnLoad (gameObject);
 	}
-	
-	void Update (){
+
+    private void Update() {
         timeFloat += Time.deltaTime;
         timeInt = Convert.ToInt32(timeFloat);
 	}

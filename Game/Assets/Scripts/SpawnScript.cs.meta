@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: d0f6b631e13e1e54683ce27acc0555bc
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cameraShake: {instanceID: 0}
+  - MainCamera: {instanceID: 0}
+  - soldier: {fileID: 400000, guid: 189865b12a5f5874584b3d044bf3cfaf, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

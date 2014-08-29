@@ -47,15 +47,20 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Archive\ButtonsMovement.cs" />
+     <Compile Include="Assets\Archive\CoinSpawnScript.cs" />
+     <Compile Include="Assets\Archive\CoinSpawner.cs" />
      <Compile Include="Assets\Archive\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\BeatScript.cs" />
-     <Compile Include="Assets\Scripts\CoinSpawner.cs" />
+     <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\Controllers\CoinMovement.cs" />
      <Compile Include="Assets\Scripts\Controllers\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
      <Compile Include="Assets\Scripts\DataClass.cs" />
      <Compile Include="Assets\Scripts\Sound\MusicScript.cs" />
      <Compile Include="Assets\Scripts\SpawnScript.cs" />
+     <Compile Include="Assets\Scripts\UI\Credits.cs" />
+     <Compile Include="Assets\Scripts\UI\CreditsMove.cs" />
+     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
      <Compile Include="Assets\Scripts\UI\ScoreScript.cs" />
      <Compile Include="Assets\Scripts\UI\TimeScript.cs" />
      <Compile Include="Assets\Scripts\background.cs" />

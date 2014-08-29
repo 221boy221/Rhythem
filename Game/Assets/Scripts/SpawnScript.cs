@@ -10,23 +10,29 @@ public class SpawnScript : MonoBehaviour {
     [SerializeField] private int tMax = 15;
     private int randomTimer;
 
+    public CameraShake cameraShake;
+    public GameObject MainCamera;
+
     public Transform soldier;
 
-    void Start() {
+    private void Start() {
         randomTimer = Random.Range(tMin, tMax);
+        GameObject MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraShake = MainCamera.GetComponent<CameraShake>(); 
     }
 
-	void Update () {
+    private void Update() {
         soldierSpawnTime += Time.deltaTime;
 
         SpawnSoldier();
 	}
 
-    void SpawnSoldier() {
+    private void SpawnSoldier() {
         if (soldierSpawnTime >= randomTimer) {
             Instantiate(soldier, transform.position, transform.rotation);
             soldierSpawnTime = 0;
             randomTimer = Random.Range(tMin, tMax);
+            cameraShake.Shake();
         }
     }
 

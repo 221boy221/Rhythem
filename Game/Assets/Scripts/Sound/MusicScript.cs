@@ -7,7 +7,7 @@ public class MusicScript : MonoBehaviour {
     private static MusicScript instance = null;
     public static MusicScript Instance { get { return instance; } }
 
-    void Awake() {
+    private void Awake() {
         instance = this;
         DontDestroyOnLoad(gameObject);
     }

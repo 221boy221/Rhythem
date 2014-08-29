@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviour {
 
         if (wall.gameObject.tag == "Player") {
             Destroy(wall.gameObject);
+            DataClass.scoreInt = 0;
+            Application.LoadLevel("GameOver");
         }
     }
 }

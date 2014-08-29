@@ -7,12 +7,12 @@ public class TimeScript : MonoBehaviour {
      */
     public GUIText timeText;
 
-    void Awake() {
+    private void Awake() {
         timeText = GameObject.FindGameObjectWithTag("TimeText").GetComponent<GUIText>();
         timeText.text = "Time: " + DataClass.timeInt;
     }
 
-    void Update() {
+    private void Update() {
         timeText.text = "Time :" + DataClass.timeInt;
     }
 }
